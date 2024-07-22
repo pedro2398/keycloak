@@ -63,7 +63,8 @@ app.get('/callback', async (req, res) => {
     //@ts-expect-error
     const requestNonce = req.session.nonce;
 
-    if(payloadIdTokenNonce.nonce !== requestNonce ) {
+    //@ts-expect-error
+    if(payloadIdTokenNonce.nonce === requestNonce ) {
        return res.status(401).json({message: 'Unauthenticadet'});
     }
 
